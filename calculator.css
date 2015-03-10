@@ -62,7 +62,14 @@ style type ="text /css">body {
 	border-top: 2px solid transparent;
 }
 
-.keys input {
+.button.oper {
+	color: white;
+	background-color: #713434;
+	border-bottom: black 2px solid;
+	border-top: 2px 303030 solid;
+}
+
+.button.black {
 	color: white;
 	background-color: #745454;
 	border-bottom: black 2px solid;

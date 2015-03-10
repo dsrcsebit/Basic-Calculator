@@ -1,9 +1,19 @@
+var flag = false;
+
+
+function clear(key) {
+    if (flag == true) {
+        return key;
+    }
+}
+
 function calculate(expr) {
     var chars = expr.split("");
     var n = [],
         op = [],
         index = 0,
         oplast = true;
+    decimal = false;
     n[index] = "";
     // Parse the expression
     for (var c = 0; c < chars.length; c++) {
@@ -11,8 +21,16 @@ function calculate(expr) {
             op[index] = chars[c];
             index++;
             n[index] = "";
+            decimal = false;
             oplast = true;
         } else {
+
+            if (decimal == true && chars[c] == ".") {
+                return NaN;   //Bug-For double decimal
+            }
+            if (chars[c] == ".") {
+                decimal = true;
+            }
             n[index] += chars[c];
             oplast = false;
         }
@@ -36,5 +54,5 @@ function calculate(expr) {
                 break;
         }
     }
-    return expr;
+    return (parseFloat(expr.toPrecision(6))); //Bug float precision
 }

@@ -1,6 +1,6 @@
 var flag = false;
 
-
+//TO DO for clear on = press
 function clear(key) {
     if (flag == true) {
         return key;
